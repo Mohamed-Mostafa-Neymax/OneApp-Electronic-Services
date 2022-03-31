@@ -1,0 +1,71 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                 <form [formGroup]="subCategoryForm" (ngSubmit)="onSubmit()">
+                       <div class="row" > 
+                        <!-- <div class="col-md-6 form-group">
+                            <label for="">اختر نوع الخدمة </label>
+                            <select class="form-control"   [formControlName]="'type'"  (change)="onTypeChange($event.target.value)">
+                                <option [value]="1"> خدمات الكترونية </option>
+                                <option [value]="2"> خدمات توصيل </option>
+                            </select>
+                        </div> -->
+                        <div class="col-md-12 form-group">
+                            
+                            <label for="">اختر الفئة </label>
+                            <select class="form-control"  [formControlName]="'category_id'">
+                             <!-- <option *ngIf="check"> {{data.category.name}} </option> -->
+                             <option *ngFor="let category of categories" [value]="category.id">{{category.name_ar}}</option>
+                            </select>
+                        </div>
+                       
+                    </div> 
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>اسم الفئة الفرعية باللغة العربية</mat-label>
+                        <input matInput type="text" [formControlName]="'name_ar'">
+                    </mat-form-field>
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>اسم الفئة الفرعية باللغة الانجليزية</mat-label>
+                        <input matInput type="text" [formControlName]="'name_en'">
+                    </mat-form-field>
+
+
+                        <!-- <div class="form-group">
+                            <label for=""> اسم الفئة الفرعية باللغة العربية </label>
+                            <input type="text" class="form-control" [formControlName]="'name_ar'">
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label for=""> اسم الفئة الفرعية باللغة الانجليزية </label>
+                            <input type="text" class="form-control" [formControlName]="'name_en'">
+                        </div> -->
+                   
+                        <div class="form-group">
+                            <label for="">صورة الفئه</label>
+                            <ng-container *ngIf="image_edit">
+                                <ngx-dropzone (change)="onSelect($event)" accept="image/jpeg,image/jpg,image/png,image/gif" [multiple]="false">
+                                    <ngx-dropzone-label>  أضغط هنا لإختيار صورة الفئه الفرعية</ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" [file]="f" >
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                        
+                                    </ngx-dropzone-image-preview>
+                                </ngx-dropzone>
+                            </ng-container>
+                            <div class="text-center" *ngIf="!image_edit">
+                                <div style="position: relative;">
+                                    <i (click)="changeImage()" style="cursor: pointer;cursor: pointer;position: absolute;top: 3px;" class="fas fa-edit text-primary" (click)="image_edit=!image_edit"></i> 
+                                    <img style="width: 150px;height: 150px;" [src]="data.imagePath" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center mt-5">
+                            <button class="btn btn-primary" type="submit" 
+                            [disabled]="subCategoryForm.invalid || this.files.length < 1">تعديل فئة فرعية</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

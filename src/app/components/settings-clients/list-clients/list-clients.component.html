@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row project-cards">
+      <div class="col-md-12 project-list">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
+                    <li class="nav-item"><a (click)="onChooseUserType(1, 'client')" [ngClass]="{'active': userType == 'client'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>عميل</a>
+                    </li>
+      
+                    <li class="nav-item"><a (click)="onChooseUserType(2, 'provider')" [ngClass]="{'active': userType == 'provider'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>مزود</a>
+                    </li>
+    
+                    <li class="nav-item"><a (click)="onChooseUserType(3, 'delivery')" [ngClass]="{'active': userType == 'delivery'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>موزع</a>
+                    </li>
+                  </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 project-list">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
+                <li *ngIf="user_type == 1 || user_type == 2 || user_type == 3" class="nav-item"><a (click)="onChooseUserStatus(0, 'blocked')" [ngClass]="{'active': userStatus == 'blocked'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>مستخدمين ممنوعين</a>
+                </li>
+  
+                <li *ngIf="user_type == 2 || user_type == 3" class="nav-item"><a (click)="onChooseUserStatus(1, 'new')" [ngClass]="{'active': userStatus == 'new'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>مستخدمين جدد</a>
+                </li>
+  
+                <li *ngIf="user_type == 1 || user_type == 2 || user_type == 3" class="nav-item"><a (click)="onChooseUserStatus(2, 'active')" [ngClass]="{'active': userStatus == 'active'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>مستخدمين فعالين</a>
+                </li>
+
+                <li *ngIf="user_type == 2 || user_type == 3" class="nav-item"><a (click)="onChooseUserStatus(3, 'rejected')" [ngClass]="{'active': userStatus == 'rejected'}" class="nav-link" href="javascript:void(0)" role="tab"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>مستخدمين مرفوضين</a>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="card">
+     
+            <div class="card-body">
+              <div class="user-status table-responsive" style="height: 60vh;overflow: scroll;text-align: center;">
+                <table class="table table-bordernone">
+                  <thead>
+                    <tr>
+                      <th scope="col">الأسم</th>
+                      <th scope="col">الأيميل</th>
+                      <th scope="col" *ngIf="status_id != 3">الأعدادات</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of usersArr; let ind = index;">
+                       <td>{{ user?.name }}</td>
+                       <td>{{ user?.email }}</td>
+                        <!-- <td>{{ order?.description }}</td> -->
+                        <td>
+                          <!-- <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="deleteApp(product.id)"></i>
+                          | -->
+                          <!-- <i class="fas fa-eye text-success" style="cursor: pointer;" (click)="orderDetails(order)"></i> | -->
+                          <button *ngIf="status_id == 1 || status_id == 2" class="btn-success" (click)="onUpdateUser(user.id, 0)">blocked</button>&nbsp;
+                          <button *ngIf="status_id == 0" class="btn-success" (click)="onUpdateUser(user.id, 1)">unblock</button>&nbsp;
+                          <button *ngIf="status_id == 1" class="btn-success" (click)="onUpdateUser(user.id, 2)">active</button>&nbsp;
+                          <button *ngIf="status_id == 1" class="btn-success" (click)="onUpdateUser(user.id, 3)">rejected</button>
+                          <!-- |
+                          <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="editApp(product)"></i> -->
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

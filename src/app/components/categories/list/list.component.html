@@ -1,0 +1,48 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                  <!-- <div class="col-md-12 form-group">
+                    <form [formGroup]="filterForm">
+                      <label> اختر النوع</label>
+                      <select class="form-control"   [formControlName]="'type'"  (change)="onTypeChange($event.target.value)">
+                        <option [value]="1"> خدمات الكترونية </option>
+                        <option [value]="2"> خدمات توصيل </option>
+                      </select>
+                    </form>
+                   </div> -->
+                   <!-- <div class="form-group col-12">
+                    <label for="">تصنيف الأقسام</label>
+                    <ng-multiselect-dropdown [settings]="categories_Settings_filter" [data]="categories_List_filter" 
+                    (onSelect)="onSelect_Filter($event)">
+                    </ng-multiselect-dropdown>
+                </div> -->
+                   <!-- <div class="col-md-12 text-center filter" *ngIf="!check ; else showTable"> 
+                      <p> Choose Category </p>
+                    </div>  -->
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">اسم الفئة</th>
+                          <th scope="col">إعدادات</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let category of categories;let i = index;">
+                          <th scope="row">{{ i + 1 }}</th>
+                          <td>{{ category.name_ar }}</td>
+                          
+                          <td>
+                            <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="onEditCat(category)"></i> |
+                            <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="onDeleteCat(category.id)"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+<!--                 
+                    <form [formGroup]="cityForm">
+                   
+                        <div class="col-md-6 form-group">
+                            <label for="">اختر دولة </label>
+                            <select class="form-control"   [formControlName]="'allCountries'"  (change)="onCountryChange($event.target.value)">
+                                <option  *ngFor="let country of countries" value="{{country.id}}" > {{country.name_ar}} </option>
+                              </select>
+                        </div>
+                    </form> -->
+                    <!-- <div class="col-md-12 text-center filter" *ngIf="!check ; else showTable"> 
+                      <p> Choose Category </p>
+                    </div>  -->
+                    <div class="form-group col-12">
+                      <label for="">تصنيف الأقسام</label>
+                      <ng-multiselect-dropdown [settings]="countries_Settings" [data]="countries" 
+                      (onSelect)="onSelect_Filter($event)">
+                      </ng-multiselect-dropdown>
+                  </div>
+                  <div class="user-status">
+                    <table class="table text-center">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">اسم المدينة</th>
+                           
+                          <th scope="col">إعدادات</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let city of cities;let i = index;">
+                          <th scope="row">{{ i + 1 }}</th>
+                          <td>{{ city.name_ar }}</td>
+                          <td>
+                           <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="onEditCountry(city)"></i> &nbsp;
+                           <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="onDeleteCountry(city.id)"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

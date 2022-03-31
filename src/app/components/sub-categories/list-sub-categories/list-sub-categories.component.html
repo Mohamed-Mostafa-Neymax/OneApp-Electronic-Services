@@ -1,0 +1,70 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                  
+                    <!-- <form [formGroup]="filterForm">
+                        <div class="row">
+                    <div class="col-md-6 form-group">  
+                  
+                      <label> اختر نوع الخدمة</label>
+                      <select class="form-control"   [formControlName]="'type'"   (change)="onTypeChange($event.target.value)">
+                        <option [value]="1"> خدمات الكترونية </option>
+                        <option [value]="2"> خدمات توصيل </option>
+                      </select>
+                    </div> 
+                      <div class="col-md-6 form-group"> 
+                  
+                        <label> اختر الفئة الرئيسية</label>
+                        <select class="form-control"  [formControlName]="'category'" (change)="onCategoryChange($event.target.value)" >
+                          <option *ngFor="let category of categories" value ="{{category.id}}"> {{category.name_ar}}   </option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    </form> -->
+                  <!-- <div class="form-group col-12">
+                      <label for="">تصنيف الأقسام</label>
+                      <ng-multiselect-dropdown [settings]="categories_Settings_filter" [data]="categories_List_filter" 
+                      (onSelect)="onSelect_Filter($event)">
+                      </ng-multiselect-dropdown>
+                  </div> -->
+                  <div class="form-group col-12">
+                      <label for="">الأقسام الرئيسية</label>
+                      <ng-multiselect-dropdown [settings]="categories_Settings" [data]="categories_List"
+                          (onSelect)="onSelect_Category($event)" (onSelectAll)="onSelect_All_Categories($event)">
+                      </ng-multiselect-dropdown>
+                  </div>
+                
+                  <div class="user-status">
+                    <table class="table text-center">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col"> اسم الفئة الفرعية</th>
+                          <th scope="col">إعدادات</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let subCategory of subcCategories;let i = index;">
+                          <th scope="row">{{ i + 1 }}</th>
+                          <td>{{ subCategory.name_ar }}</td>
+                          
+                          <td>
+                           
+                            <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="onEditCat(subCategory)"></i>
+                            |
+                            <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="onDeleteCat(subCategory.id)"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                      <!-- </ng-template> -->
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">اسم الخدمة</th>
+                            <th scope="col">إعدادات</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let service of services;let i=index">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ service.name_ar }}</td>
+                            
+                            <td>
+                              <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="onEditCat(service)"></i> 
+                              |
+                              <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="onDeleteService(service.id)"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,164 @@
+<section id="category-details">
+    <div class="card">
+        <div class="card-details text-center">
+            <!-- <h3 class="text-center">بيانات الطلب</h3>  -->
+            <table class="table" dir="rtl">
+                <thead style="text-align: right;white-space: nowrap;"><h4>بيانات الطلب</h4></thead><br>
+                <tbody>
+                    <tr>
+                        <th scope="row">رقم الطلب</th>
+                        <td>{{ orderDetailsObj?.id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">عنوان الطلب</th>
+                        <td>{{ orderDetailsObj?.title }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الفئة الأساسية</th>
+                        <td>{{ orderDetailsObj?.category }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">رقم الفئة الأساسية</th>
+                        <td>{{ orderDetailsObj?.category_id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الفئة الفرعية</th>
+                        <td>{{ orderDetailsObj?.sub_category }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">رقم الفئة الفرعية</th>
+                        <td>{{ orderDetailsObj?.sub_category_id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">تاريخ الطلب</th>
+                        <td>{{ extractDate }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الوصف</th>
+                        <td>{{ orderDetailsObj?.description ? orderDetailsObj?.description : 'لا يوجد وصف' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+
+
+            <br>
+            <table class="table" dir="rtl">
+               <thead style="text-align: right;"><h4>بيانات المستخدم</h4></thead>
+               <tbody>
+                <tr>
+                    <th scope="row">الأسم</th>
+                    <td>{{ orderDetailsObj?.user?.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">رقم الهاتف</th>
+                    <td>{{ orderDetailsObj?.user?.phone }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">الأيميل</th>
+                    <td>{{ orderDetailsObj?.user?.email }}</td>
+                </tr>
+                   <tr>
+                    <th scope="row">الصورة</th>
+                    <td><img style="width: 60px;border-radius: 50%;" [src]="orderDetailsObj?.user?.imagePath"></td>
+                </tr>
+                   <!-- <tr>
+                       
+                       <th scope="row">رسم التوصيل بالكيلومتر</th>
+                       <td>{{ orderDetailsObj?.shop?.delivery_fee_per_km }}</td>
+                   </tr>
+                   <tr>
+                        <th scope="row">رقم الهاتف</th>
+                        <td>{{ orderDetailsObj?.delivery_price }}</td>
+                    </tr> -->
+               </tbody>
+           </table>
+
+
+
+
+
+
+
+
+
+            <!-- <div id="map1Id" style="height: 300px;width: 100%;"></div> -->
+            <!-- <br>
+             <table class="table" dir="rtl">
+                <thead style="text-align: right;"><h4>بيانات العميل</h4></thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">الأيميل</th>
+                        <td>{{ orderDetailsObj?.user?.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الأسم</th>
+                        <td>{{ orderDetailsObj?.user?.name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الصورة</th>
+                        <td *ngIf="orderDetailsObj?.user?.imagePath != null"><img style="width: 60px;border-radius: 50%;" [src]="orderDetailsObj?.user?.imagePath"></td>
+                        <td *ngIf="orderDetailsObj?.user?.imagePath == null">لا يوجد صورة</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">رقم الهاتف</th>
+                        <td>{{ orderDetailsObj?.user?.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">العنوان الأفتراضي</th>
+                        <td>{{ orderDetailsObj?.user?.default_address == null ? 'لا يوجد عنوان' : orderDetailsObj?.user?.default_address }}</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <table class="table" dir="rtl">
+                <thead style="text-align: right;"><h4>تفاصيل المتجر</h4></thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">الأسم باللغة العربية</th>
+                        <td>{{ orderDetailsObj?.shop?.name_ar }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الأسم باللغة الأنجليزية</th>
+                        <td>{{ orderDetailsObj?.shop?.name_en }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">وصف باللغة العربية</th>
+                        <td>{{ orderDetailsObj?.shop?.description_ar }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">وصف باللغة الأنجليزية</th>
+                        <td>{{ orderDetailsObj?.shop?.description_en }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">الأيميل</th>
+                        <td>{{ orderDetailsObj?.shop?.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">صورة المتجر</th>
+                        <td><img style="width: 60px;border-radius: 50%;" [src]="orderDetailsObj?.shop?.imagePath"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">مكان المتجر</th>
+                        <td>{{ orderDetailsObj?.shop?.location?.name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="font-weight: bold;">أجمالي الطلب</th>
+                        <td style="font-weight: bold;">{{ orderDetailsObj?.total_price }}</td>
+                    </tr>
+                </tbody>
+            </table> -->
+            <!-- <div class="row">
+                
+            </div> -->
+            <!-- <button class="btn btn-danger mt-3 mb-3" (click)="closeCard()">حسناً</button> -->
+            <!-- <div class="row">
+                <div class="col-md-3" *ngFor="let image of data.images">
+                    <img class="w-100" src="{{image}}" alt="" >
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+
+

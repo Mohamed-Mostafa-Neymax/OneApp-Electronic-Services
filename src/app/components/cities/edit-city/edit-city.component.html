@@ -1,0 +1,54 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                
+                    <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                        <!-- <div class="col-md-6 form-group">
+                            <label for="">الدولة </label>
+                            <input type="text" class="form-control" [formControlName]="'country_name'">
+                        </div> -->
+                        <div class="col-md-12 form-group">
+                            <label for="">الدول</label>
+                            <select class="form-control" [formControlName]="'country_id'">
+                                <option *ngFor="let country of countries" value="{{country.id}}">{{country.name_ar}}</option>
+                            </select>
+                        </div>
+                        <!-- <div class="col-md-6 form-group">
+                            <label for="">المدن</label>
+                            <select class="form-control" [formControlName]="'city_id'">
+                                <option *ngFor="let city of cities" value="{{city.id}}">{{city.name_ar}}</option>
+                            </select>
+                        </div> -->
+                      </div>
+
+
+                        <mat-form-field class="w-100" appearance="outline">
+                            <mat-label>اسم المدينة باللغة العربية</mat-label>
+                            <input matInput type="text" [formControlName]="'name_ar'">
+                        </mat-form-field>
+                        <mat-form-field class="w-100" appearance="outline">
+                            <mat-label>اسم المدينة باللغة الانجليزية</mat-label>
+                            <input matInput type="text" [formControlName]="'name_en'">
+                        </mat-form-field>
+
+                        <!-- <div class="form-group">
+                            <label for=""> اسم المدينة باللغة العربية </label>
+                            <input type="text" class="form-control" [formControlName]="'name_ar'">
+                        </div>
+                        <div class="form-group">
+                            <label for=""> اسم المدينة باللغة الانجليزية </label>
+                            <input type="text" class="form-control" [formControlName]="'name_en'">
+                        </div> -->
+                   
+                        <div class="form-group text-center mt-5">
+                            <button class="btn btn-primary" type="submit">تعديل المدينة </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

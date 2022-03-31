@@ -1,0 +1,30 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="">الدول</label>
+                                <ng-multiselect-dropdown [formControlName]="'country_id'" [settings]="countries_Settings_filter" [data]="countries_list" (onSelect)="onSelect_Counrty($event)">
+                                </ng-multiselect-dropdown>
+                            </div>
+                        </div>
+                        <mat-form-field class="w-100" appearance="outline">
+                            <mat-label>اسم المدينة باللغة العربية</mat-label>
+                            <input matInput type="text" [formControlName]="'name_ar'">
+                        </mat-form-field>
+                        <mat-form-field class="w-100" appearance="outline">
+                            <mat-label>اسم المدينة باللغة الإنجليزية</mat-label>
+                            <input matInput type="text" [formControlName]="'name_en'">
+                        </mat-form-field>
+                        <div class="form-group text-center mt-5">
+                            <button class="btn btn-primary" type="submit" [disabled]="cityForm.invalid">إضافة مدينة</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

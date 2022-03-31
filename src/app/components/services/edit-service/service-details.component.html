@@ -1,0 +1,73 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                 <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+                       <div class="row"> 
+                        <div class="col-md-6 form-group">
+                            <label for="">الأقسام الرئيسية</label>
+                            <select class="form-control" [formControlName]="'category_id'" (change)="changeCategory($event.target.value)">
+                                <option *ngFor="let category of categories" value="{{category.id}}">{{category.name_ar}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">الأقسام الفرعية</label>
+                            <select class="form-control" [formControlName]="'subcategory_id'" (change)="changeSubCategory($event.target.value)">
+                                <option *ngFor="let subcategory of subcategories" value="{{subcategory.id}}">{{subcategory.name_ar}}</option>
+                            </select>
+                        </div>
+
+                        <!-- <div class="form-group col-12">
+                            <label for="">الأقسام الرئيسية</label>
+                            <ng-multiselect-dropdown [settings]="categories_Settings" [data]="categories_List"
+                            [formControlName]="'category_id'"   [(ngModel)]="selectedCategoryItem"
+                                (onSelect)="onSelect_Category($event)" >
+                            </ng-multiselect-dropdown>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="">الأقسام الفرعية</label>
+                            <ng-multiselect-dropdown [settings]="subcategories_Settings" [data]="subcategories_List"
+                            [formControlName]="'subcategory_id'" [(ngModel)]=" selectedSubCategoryItem"
+                                (onSelect)="onSelect_Sub_Category($event)"  >
+                            </ng-multiselect-dropdown>
+                        </div>
+                         -->
+                    </div> 
+
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>اسم الخدمة باللغة العربية</mat-label>
+                        <input matInput type="text" [formControlName]="'name_ar'">
+                    </mat-form-field>
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>اسم الخدمة  باللغة الانجليزية</mat-label>
+                        <input matInput type="text" [formControlName]="'name_en'">
+                    </mat-form-field>
+
+                     
+                       <div class="form-group">
+                            <label for="">صورة الخدمة</label>
+                            <ng-container *ngIf="image_edit">
+                            <ngx-dropzone (change)="onSelect($event)" accept="image/jpeg,image/jpg,image/png,image/gif" [multiple]="false">
+                                <ngx-dropzone-label>  أضغط هنا لإختيار صورةالخدمة</ngx-dropzone-label>
+                                <ngx-dropzone-image-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" [file]="f" >
+                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                  </ngx-dropzone-image-preview>
+                            </ngx-dropzone>
+                            </ng-container>
+                            <div class="text-center" *ngIf="!image_edit">
+                                <div style="position: relative;">
+                                    <i style="cursor: pointer;cursor: pointer;position: absolute;top: 3px;" class="fas fa-edit text-primary" (click)="changeImage()"></i> 
+                                    <img style="width: 150px;height: 150px;" [src]="data.imagePath" alt="image">
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="form-group text-center mt-5">
+                            <button class="btn btn-primary" type="submit" [disabled]="serviceForm.invalid || files.length < 1">تعديل الخدمة</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

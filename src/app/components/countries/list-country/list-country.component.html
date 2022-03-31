@@ -1,0 +1,30 @@
+<section id="add-main-page">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">اسم الدولة</th>
+                             
+                            <th scope="col">إعدادات</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let country of countries;let i = index;">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ country.name_ar }}</td>
+                            <td>
+                             <i class="fas fa-edit text-info" style="cursor: pointer;" (click)="onEditCountry(country)"></i> &nbsp;
+                             <i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="onDeleteCountry(country.id)"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
